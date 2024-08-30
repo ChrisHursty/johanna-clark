@@ -1,6 +1,6 @@
-# Chris Hurst WP Theme
+# Johanna Clark WP Theme
 
-Chris Hurst WP is a custom WordPress theme designed for portfolio and blog use, showcasing the work of a UX/UI Designer, WordPress Developer, and Graphic/Print Designer. This theme includes live reload features for efficient development.
+Johanna Clark WP is a custom WordPress theme designed for a boutique hair salon
 
 ## Prerequisites
 
@@ -12,7 +12,7 @@ Chris Hurst WP is a custom WordPress theme designed for portfolio and blog use, 
 1. **Clone the Repository**:  
     Clone this repository into your WordPress themes directory.
     ```bash
-    git clone https://github.com/ChrisHursty/chris-hurst-wp
+    git clone https://github.com/ChrisHursty/johanna-clark
     ```
 
 2. **Navigate to the Theme Directory**:  
@@ -63,7 +63,7 @@ Chris Hurst WP is a custom WordPress theme designed for portfolio and blog use, 
 
 ## Contributing
 
-Contributions to the Chris Hurst WP theme are welcome. Please ensure you follow the existing code structure and style.
+Contributions to the Johanna Clark WP theme are welcome. Please ensure you follow the existing code structure and style.
 
 1. Fork the repository.
 2. Create a new branch for your feature (`git checkout -b feature/AmazingFeature`).
@@ -88,5 +88,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Fonts
 
-- <a href="https://fonts.google.com/specimen/Bungee" target="_blank" rel="nofollow">Bungee</a>
+- <a href="https://fonts.google.com/specimen/Oswald" target="_blank" rel="nofollow">Oswald</a>
 - <a href="https://fonts.google.com/specimen/Montserrat" target="_blank" rel="nofollow">Montserrat</a>
