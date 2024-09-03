@@ -1,4 +1,10 @@
 .home-hero {
+    background-color: $primary;
+    // background-image: url('../images/beige-bg.webp');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
     .row {
         align-items: center;
         justify-content: center;
@@ -22,11 +28,11 @@
                 min-height: 350px;
             }
         }
-
         
-
         h1 {
-            color: $primary;
+            color: $black;
+            font-size: clamp(28px, 4vw, 70px);
+            font-weight: bold;
             margin-bottom: 30px;
         }
 

@@ -5,7 +5,7 @@
  *
  * Displays all of the <head> section and everything up till <div id="content">
  *
- * @package Chris Hurst WP
+ * @package JCH WP
  */
 
 // Exit if accessed directly.
@@ -41,7 +41,7 @@ defined('ABSPATH') || exit;
                     if (has_custom_logo()) {
                         the_custom_logo();
                     } else {
-                        echo '<a href="' . esc_url(home_url('/')) . '" rel="home"><img src="path/to/default-logo.svg" alt="' . get_bloginfo('name') . '"></a>';
+                        echo '<a href="' . esc_url(home_url('/')) . '" rel="home"><img src="' . esc_url(get_template_directory_uri() . '/dist/images/default-logo.svg') . '" alt="' . esc_attr(get_bloginfo('name')) . '"></a>';
                     }
                     ?>
                 </div>

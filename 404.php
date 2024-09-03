@@ -4,7 +4,7 @@
  * The template for displaying 404 pages (Not Found)
  *
  * @package WordPress
- * @package Chris Hurst WP
+ * @package JCH WP
  * @since 1.0.0
  */
 get_header(); 
@@ -34,7 +34,7 @@ get_header();
         <div class="align-center content">
             <div class="content-area text-center">
                 <h2>
-                    <?php esc_html_e( 'It looks like nothing was found at this location', 'chris-hurst-wp' ); ?>
+                    <?php esc_html_e( 'It looks like nothing was found at this location', 'jch-wp' ); ?>
                 </h2>
                 <div class="button-box">
                     <a href="/" class="ch-btn white-btn"><span>Return Home</span></a>

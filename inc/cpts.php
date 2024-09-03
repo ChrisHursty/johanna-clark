@@ -1,8 +1,8 @@
 <?php
 /**
- * Chris Hurst Custom Post Types
+ * JCH WP Custom Post Types
  *
- * @package Chris Hurst WP
+ * @package JCH WP
  */
 
 // Exit if accessed directly.
@@ -25,37 +25,37 @@ function register_testimonial_post_type() {
 function portfolio() {
 
 	$labels = array(
-		'name'                  => _x( 'Portfolio', 'Post Type General Name', 'chris-hurst-wp' ),
-		'singular_name'         => _x( 'Portfolio Item', 'Post Type Singular Name', 'chris-hurst-wp' ),
-		'menu_name'             => __( 'Portfolio', 'chris-hurst-wp' ),
-		'name_admin_bar'        => __( 'Portfolio', 'chris-hurst-wp' ),
-		'archives'              => __( 'Portfolio Archives', 'chris-hurst-wp' ),
-		'attributes'            => __( 'Item Attributes', 'chris-hurst-wp' ),
-		'parent_item_colon'     => __( 'Parent Item:', 'chris-hurst-wp' ),
-		'all_items'             => __( 'All Portfolio Items', 'chris-hurst-wp' ),
-		'add_new_item'          => __( 'Add New Portfolio Item', 'chris-hurst-wp' ),
-		'add_new'               => __( 'Add New Portfolio Item', 'chris-hurst-wp' ),
-		'new_item'              => __( 'New Item', 'chris-hurst-wp' ),
-		'edit_item'             => __( 'Edit Item', 'chris-hurst-wp' ),
-		'update_item'           => __( 'Update Item', 'chris-hurst-wp' ),
-		'view_item'             => __( 'View Item', 'chris-hurst-wp' ),
-		'view_items'            => __( 'View Items', 'chris-hurst-wp' ),
-		'search_items'          => __( 'Search Item', 'chris-hurst-wp' ),
-		'not_found'             => __( 'Not found', 'chris-hurst-wp' ),
-		'not_found_in_trash'    => __( 'Not found in Trash', 'chris-hurst-wp' ),
-		'featured_image'        => __( 'Featured Image', 'chris-hurst-wp' ),
-		'set_featured_image'    => __( 'Set featured image', 'chris-hurst-wp' ),
-		'remove_featured_image' => __( 'Remove featured image', 'chris-hurst-wp' ),
-		'use_featured_image'    => __( 'Use as featured image', 'chris-hurst-wp' ),
-		'insert_into_item'      => __( 'Insert into item', 'chris-hurst-wp' ),
-		'uploaded_to_this_item' => __( 'Uploaded to this item', 'chris-hurst-wp' ),
-		'items_list'            => __( 'Items list', 'chris-hurst-wp' ),
-		'items_list_navigation' => __( 'Items list navigation', 'chris-hurst-wp' ),
-		'filter_items_list'     => __( 'Filter items list', 'chris-hurst-wp' ),
+		'name'                  => _x( 'Portfolio', 'Post Type General Name', 'jch-wp' ),
+		'singular_name'         => _x( 'Portfolio Item', 'Post Type Singular Name', 'jch-wp' ),
+		'menu_name'             => __( 'Portfolio', 'jch-wp' ),
+		'name_admin_bar'        => __( 'Portfolio', 'jch-wp' ),
+		'archives'              => __( 'Portfolio Archives', 'jch-wp' ),
+		'attributes'            => __( 'Item Attributes', 'jch-wp' ),
+		'parent_item_colon'     => __( 'Parent Item:', 'jch-wp' ),
+		'all_items'             => __( 'All Portfolio Items', 'jch-wp' ),
+		'add_new_item'          => __( 'Add New Portfolio Item', 'jch-wp' ),
+		'add_new'               => __( 'Add New Portfolio Item', 'jch-wp' ),
+		'new_item'              => __( 'New Item', 'jch-wp' ),
+		'edit_item'             => __( 'Edit Item', 'jch-wp' ),
+		'update_item'           => __( 'Update Item', 'jch-wp' ),
+		'view_item'             => __( 'View Item', 'jch-wp' ),
+		'view_items'            => __( 'View Items', 'jch-wp' ),
+		'search_items'          => __( 'Search Item', 'jch-wp' ),
+		'not_found'             => __( 'Not found', 'jch-wp' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'jch-wp' ),
+		'featured_image'        => __( 'Featured Image', 'jch-wp' ),
+		'set_featured_image'    => __( 'Set featured image', 'jch-wp' ),
+		'remove_featured_image' => __( 'Remove featured image', 'jch-wp' ),
+		'use_featured_image'    => __( 'Use as featured image', 'jch-wp' ),
+		'insert_into_item'      => __( 'Insert into item', 'jch-wp' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this item', 'jch-wp' ),
+		'items_list'            => __( 'Items list', 'jch-wp' ),
+		'items_list_navigation' => __( 'Items list navigation', 'jch-wp' ),
+		'filter_items_list'     => __( 'Filter items list', 'jch-wp' ),
 	);
 	$args = array(
-		'label'                 => __( 'Portfolio Item', 'chris-hurst-wp' ),
-		'description'           => __( 'Post Type Description', 'chris-hurst-wp' ),
+		'label'                 => __( 'Portfolio Item', 'jch-wp' ),
+		'description'           => __( 'Post Type Description', 'jch-wp' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail', 'custom-fields', 'page-attributes' ),
 		'taxonomies'            => array( 'post_tag', 'genres' ),
@@ -80,10 +80,10 @@ function portfolio() {
 add_action( 'init', 'portfolio', 0 );
 
 // Genre Custom Taxonomy
-function chris_hurst_create_genre_taxonomy() {
+function jch_create_genre_taxonomy() {
     $labels = array(
-        'name'          => _x('Genres', 'Taxonomy General Name', 'chris-hurst-wp'),
-        'singular_name' => _x('Genre', 'Taxonomy Singular Name', 'chris-hurst-wp'),
+        'name'          => _x('Genres', 'Taxonomy General Name', 'jch-wp'),
+        'singular_name' => _x('Genre', 'Taxonomy Singular Name', 'jch-wp'),
     );
 
     $args = array(
@@ -96,42 +96,42 @@ function chris_hurst_create_genre_taxonomy() {
     register_taxonomy('genre', array('portfolio'), $args);
 }
 
-add_action('init', 'chris_hurst_create_genre_taxonomy');
+add_action('init', 'jch_create_genre_taxonomy');
 
 function company_post_type() {
     $labels = array(
-        'name'                  => _x('Companies', 'Post Type General Name', 'chris-hurst-wp'),
-        'singular_name'         => _x('Company', 'Post Type Singular Name', 'chris-hurst-wp'),
-        'menu_name'             => __('Companies', 'chris-hurst-wp'),
-        'name_admin_bar'        => __('Company', 'chris-hurst-wp'),
-        'archives'              => __('Company Archives', 'chris-hurst-wp'),
-        'attributes'            => __('Company Attributes', 'chris-hurst-wp'),
-        'parent_item_colon'     => __('Parent Company:', 'chris-hurst-wp'),
-        'all_items'             => __('All Companies', 'chris-hurst-wp'),
-        'add_new_item'          => __('Add New Company', 'chris-hurst-wp'),
-        'add_new'               => __('Add New', 'chris-hurst-wp'),
-        'new_item'              => __('New Company', 'chris-hurst-wp'),
-        'edit_item'             => __('Edit Company', 'chris-hurst-wp'),
-        'update_item'           => __('Update Company', 'chris-hurst-wp'),
-        'view_item'             => __('View Company', 'chris-hurst-wp'),
-        'view_items'            => __('View Companies', 'chris-hurst-wp'),
-        'search_items'          => __('Search Company', 'chris-hurst-wp'),
-        'not_found'             => __('Not found', 'chris-hurst-wp'),
-        'not_found_in_trash'    => __('Not found in Trash', 'chris-hurst-wp'),
-        'featured_image'        => __('Featured Image', 'chris-hurst-wp'),
-        'set_featured_image'    => __('Set featured image', 'chris-hurst-wp'),
-        'remove_featured_image' => __('Remove featured image', 'chris-hurst-wp'),
-        'use_featured_image'    => __('Use as featured image', 'chris-hurst-wp'),
-        'insert_into_item'      => __('Insert into company', 'chris-hurst-wp'),
-        'uploaded_to_this_item' => __('Uploaded to this company', 'chris-hurst-wp'),
-        'items_list'            => __('Companies list', 'chris-hurst-wp'),
-        'items_list_navigation' => __('Companies list navigation', 'chris-hurst-wp'),
-        'filter_items_list'     => __('Filter companies list', 'chris-hurst-wp'),
+        'name'                  => _x('Companies', 'Post Type General Name', 'jch-wp'),
+        'singular_name'         => _x('Company', 'Post Type Singular Name', 'jch-wp'),
+        'menu_name'             => __('Companies', 'jch-wp'),
+        'name_admin_bar'        => __('Company', 'jch-wp'),
+        'archives'              => __('Company Archives', 'jch-wp'),
+        'attributes'            => __('Company Attributes', 'jch-wp'),
+        'parent_item_colon'     => __('Parent Company:', 'jch-wp'),
+        'all_items'             => __('All Companies', 'jch-wp'),
+        'add_new_item'          => __('Add New Company', 'jch-wp'),
+        'add_new'               => __('Add New', 'jch-wp'),
+        'new_item'              => __('New Company', 'jch-wp'),
+        'edit_item'             => __('Edit Company', 'jch-wp'),
+        'update_item'           => __('Update Company', 'jch-wp'),
+        'view_item'             => __('View Company', 'jch-wp'),
+        'view_items'            => __('View Companies', 'jch-wp'),
+        'search_items'          => __('Search Company', 'jch-wp'),
+        'not_found'             => __('Not found', 'jch-wp'),
+        'not_found_in_trash'    => __('Not found in Trash', 'jch-wp'),
+        'featured_image'        => __('Featured Image', 'jch-wp'),
+        'set_featured_image'    => __('Set featured image', 'jch-wp'),
+        'remove_featured_image' => __('Remove featured image', 'jch-wp'),
+        'use_featured_image'    => __('Use as featured image', 'jch-wp'),
+        'insert_into_item'      => __('Insert into company', 'jch-wp'),
+        'uploaded_to_this_item' => __('Uploaded to this company', 'jch-wp'),
+        'items_list'            => __('Companies list', 'jch-wp'),
+        'items_list_navigation' => __('Companies list navigation', 'jch-wp'),
+        'filter_items_list'     => __('Filter companies list', 'jch-wp'),
     );
 
     $args = array(
-        'label'               => __('Company', 'chris-hurst-wp'),
-        'description'         => __('Post Type Description', 'chris-hurst-wp'),
+        'label'               => __('Company', 'jch-wp'),
+        'description'         => __('Post Type Description', 'jch-wp'),
         'labels'              => $labels,
         'supports'            => array('title', 'thumbnail'),
         'taxonomies'          => array('category', 'post_tag'),

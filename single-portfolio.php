@@ -3,7 +3,7 @@
 /**
  * Single Portfolio
  *
- * @package Chris Hurst WP
+ * @package JCH WP
  */
 
 // Exit if accessed directly.

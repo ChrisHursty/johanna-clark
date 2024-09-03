@@ -36,7 +36,7 @@ function minifyJs() {
 }
 
 function serve() {
-    browserSyncInstance.init({ proxy: "chrishurst.local" });
+    browserSyncInstance.init({ proxy: "johannaclarkatlanta.local" });
 
     // Watch SCSS files for changes, compile and minify them
     watch('scss/**/*.scss', compileSass);

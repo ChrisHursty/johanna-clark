@@ -4,7 +4,7 @@
  * The template for displaying search results pages
  *
  * @package WordPress
- * @package Chris Hurst WP
+ * @package JCH WP
  * @since 1.0.0
  */
 

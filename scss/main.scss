@@ -1,20 +1,20 @@
 // Import fonts
-@import url('https://fonts.googleapis.com/css2?family=Quattrocento+Sans&family=Stint+Ultra+Expanded&display&family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap');
 
 // Variables
-$black: #000;
+$black: #212121;
 $white: #ffffff;
-$primary: #CC1B1F; // Red
-$secondary: #3939A3; // Purple
+$primary: #ecd8bd; // Light Beige
+$secondary: #735731; // Dark Beige
 $dark-gray: #363636;
 $light-gray: #f4f4f4;
 $dark-red: #6f0003;
 
-$footer-top-color: #CC1B1F;
-$footer-bottom-color: #6F0003;
+$footer-top-color: $black;
+$footer-bottom-color: $black;
 
 // Fonts
-$heading: 'Stint Ultra Expanded',
+$heading: 'Oswald', sans-serif,
 serif;
 $sub-heading: 'Montserrat', sans-serif;
 $body: 'Montserrat', sans-serif;

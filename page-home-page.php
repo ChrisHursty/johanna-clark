@@ -3,7 +3,7 @@
 /**
  * Template Name: Home Page
  *
- * @package Chris Hurst WP
+ * @package JCH WP
  */
 
 // Exit if accessed directly.
@@ -11,33 +11,43 @@ defined('ABSPATH') || exit;
 get_header();
 ?>
 
-<section class="container home-hero">
-    <div class="row">
-        <div class="col-md-6 hero-content">
-            <h1><?php echo wp_kses_post(get_field('hero_heading'));
-                ?></h1>
-            <p class="intro">
-                <?php echo wp_kses_post(get_field('hero_intro')); ?>
-            </p>
-            <div class="button-box">
-                <?php
-                // Check if the ACF fields 'button_link' and 'button_text' exist and are not empty
-                if (get_field('button_link') && get_field('button_text')) {
-                    // Sanitize the URL and text to ensure security
-                    $button_link = esc_url(get_field('button_link'));
-                    $button_text = esc_html(get_field('button_text'));
+<section class="container-fw home-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 hero-content">
+                <h1><?php echo wp_kses_post(get_field('hero_heading')); ?></h1>
+                <p class="intro">
+                    <?php echo wp_kses_post(get_field('hero_intro')); ?>
+                </p>
+                <div class="button-box">
+                    <?php
+                    if (get_field('button_link') && get_field('button_text')) {
+                        $button_link = esc_url(get_field('button_link'));
+                        $button_text = esc_html(get_field('button_text'));
+                        echo '<a href="' . $button_link . '" class="ch-btn white-btn"><span>' . $button_text . '</span></a>';
+                    }
+                    ?>
+                </div>
+            </div>
 
-                    // Output the button
-                    echo '<a href="' . $button_link . '" class="ch-btn white-btn"><span>' . $button_text . '</span></a>';
+            <div class="col-md-5 hero-image">
+                <?php 
+                // Get the file array from ACF
+                $hero_video = get_field('hero_video'); 
+                if ($hero_video) {
+                    // Get the URL of the video from the array
+                    $video_url = esc_url($hero_video['url']);
+                    echo '<video class="hero-video" autoplay muted loop playsinline>
+                            <source src="' . $video_url . '" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>';
+                } else {
+                    echo '<p>Video not available.</p>'; // Optional message if the video is missing
                 }
                 ?>
             </div>
-        </div>
-
-        <div class="col-md-6 hero-image">
-            <img src="<?php echo wp_kses_post(the_field('hero_image')); ?>" alt="Chris Hurst, Designer and Developer">
-        </div>
-    </div><!-- .row -->
+        </div><!-- .row -->
+    </div>
 </section>
 
 <!-- Testimonial Slider -->

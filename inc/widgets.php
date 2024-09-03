@@ -8,8 +8,8 @@ function mytheme_register_sidebars()
 {
     register_sidebar(array(
         'id'            => 'sidebar-1',
-        'name'          => __('Primary Sidebar', 'chris-hurst-wp'),
-        'description'   => __('The main sidebar appears on the right on each page except the front page template', 'chris-hurst-wp'),
+        'name'          => __('Primary Sidebar', 'jch-wp'),
+        'description'   => __('The main sidebar appears on the right on each page except the front page template', 'jch-wp'),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
         'after_widget'  => '</section>',
         'before_title'  => '<hr><h2 class="widget-title">',

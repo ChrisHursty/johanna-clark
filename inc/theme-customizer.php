@@ -1,47 +1,47 @@
 <?php
 /**
- * Chris Hurst WP functions and definitions
+ * JCH WP functions and definitions
  *
- * @package Chris Hurst WP
+ * @package JCH WP
  */
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
 // Global CTA
-function chris_hurst_wp_customize_register( $wp_customize ) {
+function jch_wp_customize_register( $wp_customize ) {
   // Add a new panel for 'Call To Action'
   $wp_customize->add_panel( 'call_to_action_panel', array(
-      'title'       => __( 'Hurst Call To Action', 'chris-hurst-wp' ),
+      'title'       => __( 'Hurst Call To Action', 'jch-wp' ),
       'description' => 'Global Call To Action', // Optional description
       'priority'    => 30, // Adjust the priority to position it
   ));
 
   // Add a section within the panel
   $wp_customize->add_section( 'call_to_action_section', array(
-      'title' => __( 'Settings', 'chris-hurst-wp' ),
+      'title' => __( 'Settings', 'jch-wp' ),
       'panel' => 'call_to_action_panel',
   ));
 
   // Add settings to the section
-  chris_hurst_wp_add_customizer_setting( $wp_customize, 'call_to_action_section', 'heading', 'Heading', 'text' );
-  chris_hurst_wp_add_customizer_setting( $wp_customize, 'call_to_action_section', 'text', 'Text', 'textarea' );
-  chris_hurst_wp_add_customizer_setting( $wp_customize, 'call_to_action_section', 'button_text', 'Button Text', 'text' );
-  chris_hurst_wp_add_customizer_setting( $wp_customize, 'call_to_action_section', 'button_url', 'Button URL', 'url' );
-  chris_hurst_wp_add_customizer_setting( $wp_customize, 'call_to_action_section', 'background_color', 'Background Color', 'color' );
-  chris_hurst_wp_add_customizer_setting( $wp_customize, 'call_to_action_section', 'text_color', 'Text Color', 'color' );
-  chris_hurst_wp_add_customizer_setting( $wp_customize, 'call_to_action_section', 'button_background_color', 'Button Background Color', 'color' );
-  chris_hurst_wp_add_customizer_setting( $wp_customize, 'call_to_action_section', 'button_text_color', 'Button Text Color', 'color' );
+  jch_wp_add_customizer_setting( $wp_customize, 'call_to_action_section', 'heading', 'Heading', 'text' );
+  jch_wp_add_customizer_setting( $wp_customize, 'call_to_action_section', 'text', 'Text', 'textarea' );
+  jch_wp_add_customizer_setting( $wp_customize, 'call_to_action_section', 'button_text', 'Button Text', 'text' );
+  jch_wp_add_customizer_setting( $wp_customize, 'call_to_action_section', 'button_url', 'Button URL', 'url' );
+  jch_wp_add_customizer_setting( $wp_customize, 'call_to_action_section', 'background_color', 'Background Color', 'color' );
+  jch_wp_add_customizer_setting( $wp_customize, 'call_to_action_section', 'text_color', 'Text Color', 'color' );
+  jch_wp_add_customizer_setting( $wp_customize, 'call_to_action_section', 'button_background_color', 'Button Background Color', 'color' );
+  jch_wp_add_customizer_setting( $wp_customize, 'call_to_action_section', 'button_text_color', 'Button Text Color', 'color' );
 
     // Add a new panel for the Footer
     $wp_customize->add_panel('footer_panel', array(
-        'title' => __('Hurst Footer', 'chris-hurst-wp'),
+        'title' => __('Hurst Footer', 'jch-wp'),
         'priority' => 90, // Adjust the priority to position it
     ));
 
     // Add a section within the panel
     $wp_customize->add_section('footer_settings_section', array(
-        'title' => __('Footer Settings', 'chris-hurst-wp'),
+        'title' => __('Footer Settings', 'jch-wp'),
         'panel' => 'footer_panel',
         'priority' => 90, // Adjust the priority to position it
     ));
@@ -53,7 +53,7 @@ function chris_hurst_wp_customize_register( $wp_customize ) {
     ));
 
     $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'footer_logo', array(
-        'label' => __('Footer Logo', 'chris-hurst-wp'),
+        'label' => __('Footer Logo', 'jch-wp'),
         'section' => 'footer_settings_section',
         'settings' => 'footer_logo',
     )));
@@ -66,7 +66,7 @@ function chris_hurst_wp_customize_register( $wp_customize ) {
 
     $wp_customize->add_control('footer_text', array(
         'type' => 'textarea',
-        'label' => __('Footer Text', 'chris-hurst-wp'),
+        'label' => __('Footer Text', 'jch-wp'),
         'section' => 'footer_settings_section',
     ));
 
@@ -78,14 +78,14 @@ function chris_hurst_wp_customize_register( $wp_customize ) {
 
     $wp_customize->add_control('footer_copyright_text', array(
         'type' => 'textarea',
-        'label' => __('Footer Copyright Text', 'chris-hurst-wp'),
+        'label' => __('Footer Copyright Text', 'jch-wp'),
         'section' => 'footer_settings_section',
     ));
 }
 
-add_action( 'customize_register', 'chris_hurst_wp_customize_register' );
+add_action( 'customize_register', 'jch_wp_customize_register' );
 
-function chris_hurst_wp_add_customizer_setting( $wp_customize, $section, $setting_id, $label, $type ) {
+function jch_wp_add_customizer_setting( $wp_customize, $section, $setting_id, $label, $type ) {
   $wp_customize->add_setting( $setting_id, array(
       'default' => '',
       'sanitize_callback' => 'wp_kses_post',

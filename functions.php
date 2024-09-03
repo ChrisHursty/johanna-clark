@@ -1,8 +1,8 @@
 <?php
 /**
- * Chris Hurst WP functions and definitions
+ * JCH WP functions and definitions
  *
- * @package Chris Hurst WP
+ * @package JCH WP
  */
 
 // Exit if accessed directly.
@@ -17,7 +17,7 @@ require_once get_template_directory() . '/inc/cpts.php';
 // Widgets
 require get_template_directory() . '/inc/widgets.php';
 
-function chris_hurst_wp_theme_setup() {
+function jch_wp_theme_setup() {
     // Add theme support for Automatic Feed Links
     add_theme_support( 'automatic-feed-links' );
 
@@ -26,7 +26,7 @@ function chris_hurst_wp_theme_setup() {
 
     // Register Navigation Menu
     register_nav_menus( array(
-        'primary' => esc_html__( 'Primary Menu', 'chris-hurst-wp' ),
+        'primary' => esc_html__( 'Primary Menu', 'jch-wp' ),
     ) );
 
     // Add theme support for HTML5 and Title Tag
@@ -44,12 +44,12 @@ function chris_hurst_wp_theme_setup() {
     add_image_size('portfolio_slider', 810, 810, true); // true for hard crop mode
 }
 
-add_action( 'after_setup_theme', 'chris_hurst_wp_theme_setup' );
+add_action( 'after_setup_theme', 'jch_wp_theme_setup' );
 
 /**
  * Enqueue scripts and styles.
  */
-function chris_hurst_wp_scripts_styles() {
+function jch_wp_scripts_styles() {
     // Enqueue Owl Carousel & Magnific Popup Stuff
     wp_enqueue_style('owl-carousel-css', get_template_directory_uri() . '/library/owl-carousel/css/owl.carousel.min.css');
     wp_enqueue_style('magnific-popup-css', get_template_directory_uri() . '/library/magnific-popup/magnific-popup.css');
@@ -61,11 +61,11 @@ function chris_hurst_wp_scripts_styles() {
     wp_enqueue_style('font-awesome', get_template_directory_uri() . '/library/font-awesome/font-awesome-5-15-4l.min.css');
 
     // Theme CSS
-    wp_enqueue_style( 'chris-hurst-wp-style', get_template_directory_uri() . '/dist/css/main.min.css', array(), '1.0.0', 'all');
+    wp_enqueue_style( 'jch-wp-style', get_template_directory_uri() . '/dist/css/main.min.css', array(), '1.0.0', 'all');
 
     // Theme JS
-    wp_enqueue_script('chris-hurst-wp-main-js', get_template_directory_uri() . '/dist/js/main.min.js', array('jquery'), '1.0.0', true);
-    wp_enqueue_script('chris-hurst-smart-header-js', get_template_directory_uri() . '/dist/js/smart-header.min.js', array(), '1.0.0', true);
+    wp_enqueue_script('jch-wp-main-js', get_template_directory_uri() . '/dist/js/main.min.js', array('jquery'), '1.0.0', true);
+    wp_enqueue_script('jch-smart-header-js', get_template_directory_uri() . '/dist/js/smart-header.min.js', array(), '1.0.0', true);
 
     // Check if we are on a single post or the single-portfolio.php template
     if (is_single() && (is_singular('post') || is_singular('portfolio'))) {
@@ -77,17 +77,17 @@ function chris_hurst_wp_scripts_styles() {
         wp_enqueue_script('single-portfolio-js', get_template_directory_uri() . '/js/single-portfolio.js', array('jquery', 'owl-carousel-js', 'magnific-popup-js'), '1.0.0', true);
     }
     // Register and Enqueue a Script
-    // wp_enqueue_script( 'chris-hurst-wp-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20201208', true );
+    // wp_enqueue_script( 'jch-wp-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20201208', true );
 }
 
-add_action( 'wp_enqueue_scripts', 'chris_hurst_wp_scripts_styles' );
+add_action( 'wp_enqueue_scripts', 'jch_wp_scripts_styles' );
 
-function chris_hurst_wp_admin_styles() {
-    wp_enqueue_style('chris-hurst-wp-admin-styles', get_template_directory_uri() . '/dist/css/admin-styles.min.css');
+function jch_wp_admin_styles() {
+    wp_enqueue_style('jch-wp-admin-styles', get_template_directory_uri() . '/dist/css/admin-styles.min.css');
     wp_enqueue_media();
     wp_enqueue_script('portfolio-thumbnail-uploader', get_template_directory_uri() . '/dist/js/portfolio-thumbnail-uploader.min.js', array('jquery'), null, true);
 }
-add_action('admin_enqueue_scripts', 'chris_hurst_wp_admin_styles');
+add_action('admin_enqueue_scripts', 'jch_wp_admin_styles');
 
 
 // SVG upload compatibility
@@ -163,20 +163,20 @@ add_action( 'wp_enqueue_scripts', 'ccs_enqueue_scripts_and_styles' );
 add_filter('acf/settings/remove_wp_meta_box', '__return_false');
 
 // Custom Image for Portfolio Grid
-function chris_hurst_add_portfolio_thumbnail_meta_box() {
+function jch_add_portfolio_thumbnail_meta_box() {
     add_meta_box(
         'portfolio_thumbnail_meta_box', // ID of the meta box
         __('Portfolio Thumbnail Image', 'textdomain'), // Title of the meta box
-        'chris_hurst_portfolio_thumbnail_meta_box_html', // Callback function to display the meta box
+        'jch_portfolio_thumbnail_meta_box_html', // Callback function to display the meta box
         'portfolio', // Post type
         'side', // Context ('normal', 'side', and 'advanced')
         'low' // Priority
     );
 }
 
-add_action('add_meta_boxes', 'chris_hurst_add_portfolio_thumbnail_meta_box');
+add_action('add_meta_boxes', 'jch_add_portfolio_thumbnail_meta_box');
 
-function chris_hurst_portfolio_thumbnail_meta_box_html($post) {
+function jch_portfolio_thumbnail_meta_box_html($post) {
     $thumbnail_id = get_post_meta($post->ID, '_portfolio_thumbnail_id', true);
     echo '<input type="hidden" id="portfolio_thumbnail_id" name="portfolio_thumbnail_id" value="' . esc_attr($thumbnail_id) . '">';
     echo '<button id="portfolio_thumbnail_button" class="button">' . __('Select Image', 'textdomain') . '</button>';
@@ -189,7 +189,7 @@ function chris_hurst_portfolio_thumbnail_meta_box_html($post) {
     wp_nonce_field('portfolio_thumbnail_nonce_action', 'portfolio_thumbnail_nonce');
 }
 
-function chris_hurst_save_portfolio_thumbnail($post_id) {
+function jch_save_portfolio_thumbnail($post_id) {
     // Verify the nonce before proceeding.
     if (!isset($_POST['portfolio_thumbnail_nonce']) || !wp_verify_nonce($_POST['portfolio_thumbnail_nonce'], 'portfolio_thumbnail_nonce_action')) {
         return;
@@ -205,7 +205,7 @@ function chris_hurst_save_portfolio_thumbnail($post_id) {
     }
 }
 
-add_action('save_post_portfolio', 'chris_hurst_save_portfolio_thumbnail');
+add_action('save_post_portfolio', 'jch_save_portfolio_thumbnail');
 
 function register_random_posts_widget() {
     register_widget('Random_Posts_Widget');

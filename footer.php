@@ -3,7 +3,7 @@
 /**
  * The footer for our theme
  *
- * @package Chris Hurst WP
+ * @package JCH WP
  */
 
 // Exit if accessed directly.

@@ -3,7 +3,7 @@
 /**
  * Template Name: Regular Page, One Column
  *
- * @package Chris Hurst WP
+ * @package JCH WP
  */
 
 // Exit if accessed directly.

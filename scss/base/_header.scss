@@ -8,13 +8,28 @@
 }
 
 .header-spacer {
-    margin-top: 70px;
+    margin-top: 110px;
 
+    @media (min-width: 1024px) and (max-width: 1180px) {
+        margin-top: 9vw;
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+        margin-top: 9vw;
+    }
+
+    @media (min-width: 600px) and (max-width: 767px) {
+        margin-top: 12vw;
+    }
+
+    @media (max-width: 599px) {
+        margin-top: 22vw;
+    }
 }
   
 .site-header {
-    background-color: $primary;
-    border-bottom: 2px solid darken( $primary, 20% );
+    background-color: $black;
+    border-bottom: 2px solid $primary;
     font-family: $heading;
     
     .container {
@@ -36,7 +51,7 @@
     }
 
     .site-branding {
-        padding-top: 6px;
+        padding: 5px 0;
         width: 25%;
         
         a {
@@ -57,7 +72,7 @@
         }
 
         @media (max-width: 600px) {
-            width: 40%;
+            width: 55%;
         }
 
         @media (max-width: 480px) {

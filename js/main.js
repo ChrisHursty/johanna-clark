@@ -27,8 +27,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-// Testimonials Slider
+// Owl Carousel
 jQuery(document).ready(function($) {
+    
     // Testimonials Slider
     $(".testimonial-carousel").owlCarousel({
         items: 2,

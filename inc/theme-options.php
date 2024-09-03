@@ -1,8 +1,8 @@
 <?php
 /**
- * Chris Hurst WP functions and definitions
+ * JCH WP functions and definitions
  *
- * @package Chris Hurst WP
+ * @package JCH WP
  */
 
 // Exit if accessed directly.
@@ -10,9 +10,9 @@ defined( 'ABSPATH' ) || exit;
 
 if (function_exists('acf_add_options_page')) {
     acf_add_options_page(array(
-        'page_title'    => 'Chris Hurst Theme Options',
-        'menu_title'    => 'Chris Hurst Theme Options',
-        'menu_slug'     => 'chris-hurst-theme-options',
+        'page_title'    => 'Johanna Clark Theme Options',
+        'menu_title'    => 'Johanna Clark Theme Options',
+        'menu_slug'     => 'jch-theme-options',
         'capability'    => 'manage_options',
         'redirect'      => false,
     ));
@@ -111,7 +111,7 @@ if (function_exists('acf_add_local_field_group')) {
                 array(
                     'param' => 'options_page',
                     'operator' => '==',
-                    'value' => 'chris-hurst-theme-options',
+                    'value' => 'jch-theme-options',
                 ),
             ),
         ),
