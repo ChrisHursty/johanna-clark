@@ -4,6 +4,10 @@
     position: relative;
     text-align: center;
 
+    @media (max-width: 767px) {
+        padding: 15px;
+    }
+
     .cta-container {
         background-position: 0 50%;
         background-repeat: no-repeat;
