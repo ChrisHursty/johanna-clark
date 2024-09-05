@@ -25,7 +25,7 @@ if ($heading || $text || $button_text) : ?>
                     <?php if ($button_text && $button_url) : ?>
                         <a href="<?php echo esc_url($button_url); ?>" class="cta-button" style="background-color: <?php echo esc_attr($button_background_color); ?>;">
                             <span style="color: <?php echo get_theme_mod('button_text_color'); ?>">
-                                <?php echo esc_html($button_text); ?>
+                                <?php echo esc_html($button_text); ?><i style="margin-left: 6px;"class="fas fa-external-link-alt"></i>
                             </span>
                         </a>
                     <?php endif; ?>

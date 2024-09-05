@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
 function jch_wp_customize_register( $wp_customize ) {
   // Add a new panel for 'Call To Action'
   $wp_customize->add_panel( 'call_to_action_panel', array(
-      'title'       => __( 'Hurst Call To Action', 'jch-wp' ),
+      'title'       => __( 'JCH Call To Action', 'jch-wp' ),
       'description' => 'Global Call To Action', // Optional description
       'priority'    => 30, // Adjust the priority to position it
   ));
@@ -35,7 +35,7 @@ function jch_wp_customize_register( $wp_customize ) {
 
     // Add a new panel for the Footer
     $wp_customize->add_panel('footer_panel', array(
-        'title' => __('Hurst Footer', 'jch-wp'),
+        'title' => __('JCH Footer', 'jch-wp'),
         'priority' => 90, // Adjust the priority to position it
     ));
 

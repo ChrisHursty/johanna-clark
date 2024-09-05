@@ -1,7 +1,7 @@
 <div class="container-fw testimonial-container">
     <div class="container">
         <div class="row">
-            <h2 class="align-center">Testimonials</h2>
+            <h2 class="align-center">Reviews</h2>
             <div class="owl-carousel testimonial-carousel">
                 <?php
                 $testimonials = new WP_Query(array(
@@ -22,18 +22,10 @@
                         <?php the_content(); ?>
                     </blockquote>
                     <div class="details">
-                        <div class="image">
-                            <?php if (has_post_thumbnail()) : ?>
-                                <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
-                            <?php endif; ?>
-                        </div>
                         <div class="name-company">
                             <p class="name">
                                 <?php the_title(); ?>
                             </p>
-                            <?php if (!empty($company_name)) : ?>
-                                <p class="company"><?php echo esc_html($company_name); ?></p>
-                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

@@ -12,6 +12,13 @@
         margin-bottom: 30px;
     }
 
+    .owl-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 330px;
+    }
+
     .item {
         display: flex;
         flex-direction: column;

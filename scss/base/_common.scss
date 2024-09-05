@@ -53,14 +53,30 @@ figure {
     max-width: 100% !important;
 }
 
+.dark-bg {
+    background-color: $black;
+
+    h1, h2, h3, h4, h5, h6, p {
+        color: $white;
+    }
+}
+
+.light-bg {
+    background: linear-gradient(to bottom, #ffefda, #dfb67e);
+
+    h1, h2, h3, h4, h5, h6, p {
+        color: $black;
+    }
+}
+
 
 // Buttons
-.ch-btn {
-    background-color: $white;
-    border-radius: 8px;
+.jch-btn {
+    background-color: $black;
+    border-radius: 50px;
     display: inline-block;
     font-family: $heading;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
     padding: 10px 20px;
     text-decoration: none;
@@ -80,14 +96,25 @@ figure {
         color: $white;
 
         span, a {
-            color: $white;
+            color: $black;
         }
     }
 }
 
 .white-btn {
-    border: 4px solid $primary;
-    background-color: $white;
+    background-color: $primary;
+
+    span {
+        color: $black;
+    }
+
+    &:hover {
+        background-color: #000;
+
+        span, a {
+            color: $primary;
+        }
+    }
 }
 
 // Ninja Form Button

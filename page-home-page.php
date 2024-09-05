@@ -16,15 +16,15 @@ get_header();
         <div class="row">
             <div class="col-md-7 hero-content">
                 <h1><?php echo wp_kses_post(get_field('hero_heading')); ?></h1>
-                <p class="intro">
+                <h2 class="intro">
                     <?php echo wp_kses_post(get_field('hero_intro')); ?>
-                </p>
+                </h2>
                 <div class="button-box">
                     <?php
                     if (get_field('button_link') && get_field('button_text')) {
                         $button_link = esc_url(get_field('button_link'));
                         $button_text = esc_html(get_field('button_text'));
-                        echo '<a href="' . $button_link . '" class="ch-btn white-btn"><span>' . $button_text . '</span></a>';
+                        echo '<a href="' . $button_link . '" class="jch-btn"><span>' . $button_text . '</span></a>';
                     }
                     ?>
                 </div>
@@ -49,7 +49,54 @@ get_header();
         </div><!-- .row -->
     </div>
 </section>
-
+<!-- About -->
+<section class="container-fw home-about dark-bg">
+    <div class="container">
+        <div class="align-center">
+            <h2>About</h2>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-10 align-center">
+                <?php 
+                $about_content = get_field('about'); 
+                if( $about_content ):
+                    echo wp_kses_post($about_content); 
+                endif; 
+                ?>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Services -->
+<section class="container-fw services-container light-bg">
+    <div class="container">
+        <div class="align-center">
+            <h2>Services</h2>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <?php if (have_rows('services')) : ?>
+                <?php while (have_rows('services')) : the_row();
+                    // Your sub fields go here
+                    $icon = get_sub_field('icon');
+                    $title = get_sub_field('title');
+                    $description = get_sub_field('description');
+                ?>
+                    <div class="service-item" style="background-image: url('<?php echo esc_url($icon); ?>');">
+                        <div class="service-content">
+                            <h2 class="service-title"><?php echo esc_html($title); ?></h2>
+                            <p class="service-description"><?php echo esc_html($description); ?></p>
+                        </div>
+                    </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
+        </div>
+        <a class="jch-btn align-center" href="/services"><span>View All Of Our Services</span></a>
+    </div>
+</section>
 <!-- Testimonial Slider -->
 <section class="testimonials">
     <?php get_template_part('template-parts/testimonial-slider'); ?>
@@ -94,39 +141,22 @@ get_header();
     </div><!-- .row -->
 </section>
 
-<section class="container-fw services-container">
-    <div class="container">
-        <div class="row">
-            <?php if (have_rows('services')) : ?>
-                <?php while (have_rows('services')) : the_row();
-                    // Your sub fields go here
-                    $icon = get_sub_field('icon');
-                    $title = get_sub_field('title');
-                    $description = get_sub_field('description');
-                    $button_text = get_sub_field('button_text');
-                    $button_url = get_sub_field('button_url');
-                ?>
-                    <div class="service-item" style="background-image: url('<?php echo esc_url($icon); ?>');">
-                        <div class="service-content">
-                            <h2 class="service-title"><?php echo esc_html($title); ?></h2>
-                            <p class="service-description"><?php echo esc_html($description); ?></p>
-                            <?php if ($button_url && $button_text) : ?>
-                                <a href="<?php echo esc_url($button_url); ?>" class="learn-more-link"><span><?php echo esc_html($button_text); ?></span></a>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                <?php endwhile; ?>
-            <?php endif; ?>
-
-        </div>
-    </div>
-</section>
-
 <section class="cta">
     <?php get_template_part('template-parts/call-to-action'); ?>
 </section>
-<section class="company-ticker">
-    <?php get_template_part('template-parts/company-ticker'); ?>
+<section class="container-fw gallery-bg">
+    <?php while (have_posts()) : the_post();
+        $images = get_field('hp_gallery');
+        if ($images) : ?>
+            <div class="owl-carousel hp-slider owl-theme hp-gallery-carousel">
+                <?php foreach ($images as $image) : ?>
+                    <div class="item">
+                        <img src="<?php echo wp_get_attachment_image_url( $image['id'], 'hp-gallery-img' ); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                    </div>
+                <?php endforeach; ?>
+            </div>
+    <?php endif;
+    endwhile; ?>
 </section>
 <?php
 get_footer();
