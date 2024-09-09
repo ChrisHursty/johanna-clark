@@ -18,7 +18,7 @@ get_header(); ?>
 <?php
 // Initialize variables
 $post_id            = get_the_ID();
-$default_image_url  = get_template_directory_uri() . '/dist/images/default-hero-img.png'; // Default image URL
+$default_image_url  = get_template_directory_uri() . '/dist/images/default-hero-img.webp'; // Default image URL
 $featured_image_url = get_the_post_thumbnail_url($post_id, 'full'); // Attempt to get the featured image URL
 $category_terms     = get_the_terms($post_id, 'category'); // Get categories
 
@@ -47,21 +47,14 @@ if (!empty($category_terms) && !is_wp_error($category_terms)) {
 echo '</div></div></section>';
 
 ?>
-<section class="container content-bg">
+<section class="container content-bg slim-page">
     <div class="row">
-        <div class="col-md-8 content">
+        <div class="col-12 align-center content">
             <div class="content-area">
                 <?php the_content(); ?>
             </div>
         </div>
-
-        <!-- Sidebar Area -->
-        <div class="col-md-4 sidebar">
-            <?php if (is_active_sidebar('sidebar-1')) : ?>
-                <?php dynamic_sidebar('sidebar-1'); ?>
-            <?php endif; ?>
-        </div>
-    </div>
+    </div><!-- .row -->
 </section>
 
 <section class="cta">

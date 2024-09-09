@@ -70,75 +70,12 @@ get_header();
     </div>
 </section>
 <!-- Services -->
-<section class="container-fw services-container light-bg">
-    <div class="container">
-        <div class="align-center">
-            <h2>Services</h2>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <?php if (have_rows('services')) : ?>
-                <?php while (have_rows('services')) : the_row();
-                    // Your sub fields go here
-                    $icon = get_sub_field('icon');
-                    $title = get_sub_field('title');
-                    $description = get_sub_field('description');
-                ?>
-                    <div class="service-item" style="background-image: url('<?php echo esc_url($icon); ?>');">
-                        <div class="service-content">
-                            <h2 class="service-title"><?php echo esc_html($title); ?></h2>
-                            <p class="service-description"><?php echo esc_html($description); ?></p>
-                        </div>
-                    </div>
-                <?php endwhile; ?>
-            <?php endif; ?>
-        </div>
-        <a class="jch-btn align-center" href="/services"><span>View All Of Our Services</span></a>
-    </div>
+<section class="cta">
+    <?php get_template_part('template-parts/services'); ?>
 </section>
 <!-- Testimonial Slider -->
 <section class="testimonials">
     <?php get_template_part('template-parts/testimonial-slider'); ?>
-</section>
-<section class="container">
-    <div class="row">
-        <?php
-        $args = array(
-            'post_type'      => 'portfolio',
-            'posts_per_page' => 6,
-            'orderby'        => 'rand',
-            'order'          => 'ASC'
-        );
-        $portfolio_query = new WP_Query($args);
-
-        if ($portfolio_query->have_posts()) {
-            echo '<div class="portfolio-grid">';
-
-            while ($portfolio_query->have_posts()) {
-                $portfolio_query->the_post();
-                $thumbnail_id = get_post_meta(get_the_ID(), '_portfolio_thumbnail_id', true);
-
-                if ($thumbnail_id) {
-                    $thumbnail_url = wp_get_attachment_url($thumbnail_id);
-
-                    echo '<div class="portfolio-item">';
-                    echo '<a href="' . esc_url(get_permalink()) . '">';
-                    echo '<img src="' . esc_url($thumbnail_url) . '" alt="' . esc_attr(get_the_title()) . '">';
-                    echo '<div class="portfolio-overlay">';
-                    echo '<span class="portfolio-title">' . get_the_title() . '</span>';
-                    echo '</div>'; // .portfolio-overlay
-                    echo '</a>';
-                    echo '</div>'; // .portfolio-item
-                }
-            }
-
-            echo '</div>'; // .portfolio-grid
-            wp_reset_postdata();
-        }
-        ?>
-
-    </div><!-- .row -->
 </section>
 
 <section class="cta">

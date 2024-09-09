@@ -98,5 +98,28 @@ jQuery(document).ready(function($) {
                 items:4
             }
         }
-      });
+    });
+
+    $(".lp-gallery-carousel").owlCarousel({
+        items: 4,
+        margin: 10,
+        loop: true,
+        autoplay: true,
+        dots: false,
+        autoplayTimeout: 3000, // 3 seconds
+        autoplayHoverPause: true,
+        slideBy: 2,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                dots: false,
+                items:2
+            },
+            1000:{
+                items:4
+            }
+        }
+    });
 });

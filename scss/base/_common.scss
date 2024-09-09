@@ -25,20 +25,11 @@ ul {
     margin: 15px 0;
 
     ::marker {
-        color: #cc1b1f;
-    }
-    
-    // Use a mixin for responsive indenting if you frequently use similar patterns
-    @mixin responsive-indent($desktop-indent, $mobile-indent: null) {
-        margin-left: $desktop-indent;
-
-        @media (max-width: 767px) {
-            margin-left: $mobile-indent;
-        }
+        color: $primary;
     }
 
     li {
-        @include responsive-indent(30px, 15px); // Apply responsive indentation
+        margin: 0 30px;
     }
 }
 
@@ -56,7 +47,7 @@ figure {
 .dark-bg {
     background-color: $black;
 
-    h1, h2, h3, h4, h5, h6, p {
+    h1, h2, h3, h4, h5, h6, p, li {
         color: $white;
     }
 
@@ -68,7 +59,7 @@ figure {
 .light-bg {
     background: linear-gradient(to bottom, #ffefda, #dfb67e);
 
-    h1, h2, h3, h4, h5, h6, p {
+    h1, h2, h3, h4, h5, h6, p, li {
         color: $black;
     }
 
@@ -149,10 +140,8 @@ figure {
 
 .content-bg {
     background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 2px 4px 20px #848484;
-    margin-top: -60px;
-    margin-bottom: 40px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 
     .row {
         padding: 45px;

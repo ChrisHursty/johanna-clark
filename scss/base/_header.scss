@@ -189,11 +189,11 @@
                     color: $white;
                     font-weight: bold;
                     text-decoration: none;
-                    text-transform: uppercase;
+                    text-transform: capitalize;
                     transition: color 0.5s ease;
 
                     &:hover {
-                        color: $dark-gray;
+                        color: $primary;
                     }
 
                     @media (max-width: 768px) {
