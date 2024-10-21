@@ -48,4 +48,7 @@ get_header();
     <?php get_template_part('template-parts/call-to-action'); ?>
 </section>
 
+<section class="pricing">
+    <?php get_template_part('template-parts/pricing'); ?>
+</section>
 <?php get_footer(); ?>

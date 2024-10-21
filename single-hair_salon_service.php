@@ -8,7 +8,10 @@
 
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
-get_header(); ?>
+get_header();
+$button_text             = get_theme_mod('button_text', '');
+$button_url              = get_theme_mod('button_url', '');
+?>
 
 <!-- Progress Bar Container -->
 <div id="progressBarContainer">
@@ -43,7 +46,6 @@ if (!empty($category_terms) && !is_wp_error($category_terms)) {
     }
     echo '</div>'; // Close category-container div
 }
-
 echo '</div></div></section>';
 
 ?>
@@ -51,10 +53,24 @@ echo '</div></div></section>';
     <div class="row">
         <div class="col-12 align-center content">
             <div class="content-area">
+                <div class="breadcrumbs"><a style="color: #222;" href="/hair-salon-services/"><< Back To All Services</a></div>
                 <?php the_content(); ?>
             </div>
         </div>
+        <div class="col-12 align-center text-center">
+            <?php if ($button_text && $button_url) : ?>
+                <a href="<?php echo esc_url($button_url); ?>" class="jch-btn">
+                    <span>
+                        <?php echo esc_html($button_text); ?><i style="margin-left: 6px;"class="fas fa-external-link-alt"></i>
+                    </span>
+                </a>
+            <?php endif; ?>
+        </div>
     </div><!-- .row -->
+</section>
+
+<section class="pricing">
+    <?php get_template_part('template-parts/pricing'); ?>
 </section>
 
 <section class="cta">

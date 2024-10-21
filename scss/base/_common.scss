@@ -70,7 +70,8 @@ figure {
 
 
 // Buttons
-.jch-btn {
+.jch-btn,
+.grid-btn {
     background-color: $black;
     border-radius: 50px;
     display: inline-block;
@@ -114,6 +115,11 @@ figure {
             color: $primary;
         }
     }
+}
+
+.grid-btn {
+    font-size: 15px;
+    text-align: center;
 }
 
 // Ninja Form Button
@@ -186,5 +192,55 @@ figure {
             text-transform: uppercase;
         }
 
+    }
+}
+
+// Pricing
+.pricing-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    
+    li {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid $black;
+        font-size: 1.2rem;
+
+        @media (max-width: 768px) {
+            margin: 0 10px;
+        }
+        
+        
+        .service-title {
+            font-weight: bold;
+            text-transform: capitalize;
+
+            @media (max-width: 768px) {
+                font-size: 14px;
+                text-align: left;
+            }
+        }
+        
+        .service-price {
+            font-weight: bold;
+
+            @media (max-width: 768px) {
+                font-size: 14px;
+                text-align: right;
+            }
+        }
+    }
+}
+
+.additional-content {
+    margin-top: 40px;
+    font-size: 1rem;
+    line-height: 1.6;
+
+    p {
+        margin-bottom: 20px;
     }
 }

@@ -212,3 +212,11 @@ function register_random_posts_widget() {
     register_widget('Random_Portfolio_Widget');
 }
 add_action('widgets_init', 'register_random_posts_widget');
+
+
+function custom_cpt_archive_posts_per_page( $query ) {
+    if ( ! is_admin() && $query->is_post_type_archive('hair_salon_service') && $query->is_main_query() ) {
+        $query->set( 'posts_per_page', -1 ); // Show all posts
+    }
+}
+add_action( 'pre_get_posts', 'custom_cpt_archive_posts_per_page' );
