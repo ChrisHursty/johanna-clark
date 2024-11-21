@@ -11,6 +11,55 @@ defined('ABSPATH') || exit;
 get_header();
 $post_id = get_the_ID();
 $featured_image_url = get_the_post_thumbnail_url($post_id, 'full');
+// Fetch common data from Theme Options
+$business_name = get_field('business_name', 'option');
+$business_logo = get_field('business_logo', 'option');
+$phone = get_field('business_phone', 'option');
+$address = [
+    'street' => get_field('street_address', 'option'),
+    'city' => get_field('city', 'option'),
+    'state' => get_field('state', 'option'),
+    'postal_code' => get_field('postal_code', 'option'),
+    'country' => get_field('country', 'option'),
+    'latitude' => get_field('latitude', 'option'),
+    'longitude' => get_field('longitude', 'option'),
+];
+$social_links = get_field('social_links', 'option');
+
+// Fetch dynamic data for the Landing Page
+$target_area = get_field('target_area');
+$custom_description = get_field('custom_description');
+$page_image = get_field('page_image');
+
+// Generate Schema
+$schema = [
+    '@context' => 'https://schema.org',
+    '@type' => 'LocalBusiness',
+    'name' => $business_name,
+    'description' => $custom_description ?: get_field('default_description', 'option'),
+    'image' => $page_image ?: $business_logo,
+    'address' => [
+        '@type' => 'PostalAddress',
+        'streetAddress' => $address['street'],
+        'addressLocality' => $address['city'],
+        'addressRegion' => $address['state'],
+        'postalCode' => $address['postal_code'],
+        'addressCountry' => $address['country']
+    ],
+    'geo' => [
+        '@type' => 'GeoCoordinates',
+        'latitude' => $address['latitude'],
+        'longitude' => $address['longitude']
+    ],
+    'telephone' => $phone,
+    'url' => get_permalink(),
+    'serviceArea' => $target_area ? ['@type' => 'Place', 'name' => $target_area] : null,
+    'sameAs' => $social_links ? array_column($social_links, 'social_platform_url') : []
+];
+
+// Output JSON-LD
+echo '<script type="application/ld+json">' . json_encode($schema) . '</script>';
+
 ?>
 <!-- LP HERO -->
 <section class="container-fw lp-hero light-bg">

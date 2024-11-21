@@ -220,3 +220,64 @@ function custom_cpt_archive_posts_per_page( $query ) {
     }
 }
 add_action( 'pre_get_posts', 'custom_cpt_archive_posts_per_page' );
+
+// Schema
+function add_generic_schema() {
+    if (is_singular('post')) {
+        $schema = [
+            '@context' => 'https://schema.org',
+            '@type' => 'Article',
+            'headline' => get_the_title(),
+            'description' => get_the_excerpt(),
+            'url' => get_permalink(),
+            'datePublished' => get_the_date('c'),
+            'dateModified' => get_the_modified_date('c'),
+            'author' => [
+                '@type' => 'Person',
+                'name' => get_the_author()
+            ]
+        ];
+    } else {
+        $schema = [
+            '@context' => 'https://schema.org',
+            '@type' => 'WebPage',
+            'name' => get_the_title(),
+            'url' => get_permalink(),
+            'description' => get_dynamic_webpage_description()
+        ];
+    }
+
+    // Output JSON-LD
+    echo '<script type="application/ld+json">' . json_encode($schema) . '</script>';
+}
+add_action('wp_head', 'add_generic_schema');
+
+// Description for Schema
+function get_dynamic_webpage_description() {
+    // Check if Yoast SEO is active and fetch meta description
+    if (class_exists('WPSEO_Frontend')) {
+        $meta_description = WPSEO_Frontend::get_instance()->metadesc(false);
+        if (!empty($meta_description)) {
+            return $meta_description;
+        }
+    }
+
+    // Fallback to the page/post excerpt
+    if (is_singular()) {
+        $excerpt = get_the_excerpt();
+        if (!empty($excerpt)) {
+            return $excerpt;
+        }
+    }
+
+    // Fallback to a default description from Theme Options
+    $default_description = get_field('default_description', 'option'); // ACF field
+    if (!empty($default_description)) {
+        return $default_description;
+    }
+
+    // Hardcoded fallback as a last resort
+    return "Welcome to Johanna Clark Hair Salon, the best place for expert balayage and hair styling.";
+}
+
+
